@@ -2,19 +2,19 @@
 # Copyright (C) 2018-present Team LibreELEC
 
 PKG_NAME="atf"
-PKG_VERSION="2.10.0"
-PKG_SHA256="696b8e53923aac4474532da7dd681f0bd044b329732facd65aeabea3e61adca9"
+PKG_VERSION="2.10.1"
+PKG_SHA256="d5cbb2fd8581fdff3f23c9f861cfa4627f3ef56a05627bae9cf84b5d9889b77f"
 PKG_ARCH="arm aarch64"
 PKG_LICENSE="BSD-3c"
-PKG_SITE="https://github.com/ARM-software/arm-trusted-firmware"
-PKG_URL="https://github.com/ARM-software/arm-trusted-firmware/archive/v${PKG_VERSION}.tar.gz"
+PKG_SITE="https://github.com/wmport/atf"
+PKG_URL="https://github.com/wmport/atf/archive/refs/tags/v2.10.1.tar.gz"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_LONGDESC="ARM Trusted Firmware is a reference implementation of secure world software, including a Secure Monitor executing at Exception Level 3 and various Arm interface standards."
 PKG_TOOLCHAIN="manual"
 
 [ -n "${KERNEL_TOOLCHAIN}" ] && PKG_DEPENDS_TARGET+=" gcc-${KERNEL_TOOLCHAIN}:host"
 
-if [ "${ATF_PLATFORM}" = "rk3399" ]; then
+if [ "${ATF_PLATFORM}" = "rk3588" ]; then
   PKG_DEPENDS_TARGET+=" gcc-arm-none-eabi:host"
   export M0_CROSS_COMPILE="${TOOLCHAIN}/bin/arm-none-eabi-"
 fi
